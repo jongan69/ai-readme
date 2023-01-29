@@ -1,5 +1,5 @@
-const generateCode = async ({
-  debug
+const generateReadMe = async ({
+  code
 }) => {
   try {
     const response = await fetch(
@@ -11,7 +11,7 @@ const generateCode = async ({
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         },
         body: JSON.stringify({
-          prompt: `Try to Debug this code: ${debug}. If errors are found, return a full overview of the functions and any libraries included, and the language identified.`,
+          prompt: `${code}. Read the code and generate a README.md for it in markdown format.`,
           max_tokens: 300,
           temperature: 0.5,
         }),
@@ -26,10 +26,10 @@ const generateCode = async ({
 };
 
 export default async function handler(req, res) {
-  const { debug } = req.body;
+  const { code } = req.body;
 
-  const answer = await generateCode({
-    debug
+  const answer = await generateReadMe({
+    code
   });
 
   res.status(200).json({
