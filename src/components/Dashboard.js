@@ -42,7 +42,7 @@ export default function Dashboard() {
                 Paste Your Code Here
               </label>
               <textarea
-                rows={7}
+                rows={50}
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 name="code"
