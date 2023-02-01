@@ -13,9 +13,11 @@ const generateReadMe = async ({
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         },
         body: JSON.stringify({
-          prompt: `${code}. Read the code and generate a README.md for it in markdown format. Make sure all sentences are complete.`,
+          prompt: `${code}. Read the code and generate a README.md for it in markdown format. 
+          If possible include code usage examples. 
+          Make sure all sentences are complete.`,
           max_tokens: 300,
-          temperature: 0.5,
+          temperature: 0.7,
         }),
       }
     );
