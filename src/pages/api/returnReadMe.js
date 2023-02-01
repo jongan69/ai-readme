@@ -19,9 +19,10 @@ const generateReadMe = async ({
     );
     const data = await response.json();
 
-    return data.choices[0].text;
+    return data?.choices[0]?.text;
   } catch (err) {
     console.error(err);
+    return err.toString()
   }
 };
 

@@ -4,6 +4,7 @@ export default function Dashboard() {
   const [markdown, setMarkdown] = useState("");
 
   const [code, setCode] = useState("");
+  const [apiError, setApiError] = useState("");
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
@@ -16,18 +17,26 @@ export default function Dashboard() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsGenerating(true);
-    const res = await fetch("/api/returnReadMe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        code
-      }),
-    });
-    setIsGenerating(false);
-    const data = await res.json();
-    setMarkdown(data.answer);
+
+    try {
+      const res = await fetch("/api/returnReadMe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          code
+        }),
+      });
+      setIsGenerating(false);
+      const data = await res.json();
+      setMarkdown(data.answer);
+    } catch (err) {
+      setApiError(err)
+      console.error(err);
+      setIsGenerating(false);
+    }
+
   };
 
   return (
@@ -80,7 +89,7 @@ export default function Dashboard() {
               }
               name="output"
               value={markdown}
-              onChange={(e) => setMarkdown(e.target.value)}
+              onChange={!apiError ? (e) => setMarkdown(e.target.value) : (e) => setMarkdown(apiError)}
               disabled={markdown === ""}
               id="output"
               placeholder="AI Response"
