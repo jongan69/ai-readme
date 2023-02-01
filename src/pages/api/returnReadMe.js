@@ -28,7 +28,7 @@ const generateReadMe = async ({
 
 export default async function handler(req, res) {
   const { code } = req.body;
-
+  console.log('Code for readme: ', code)
   const answer = await generateReadMe({
     code
   });
