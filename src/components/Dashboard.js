@@ -36,7 +36,6 @@ export default function Dashboard() {
       console.error(err);
       setIsGenerating(false);
     }
-
   };
 
   return (
@@ -97,7 +96,7 @@ export default function Dashboard() {
               ${!apiError
                   ? "text-gray-900"
                   : "text-red-500"
-                }`} 
+                }`}
             />
             <button
               onClick={handleCopy}
