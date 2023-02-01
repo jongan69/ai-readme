@@ -1,3 +1,5 @@
+import { stringify } from "postcss";
+
 const generateReadMe = async ({
   code
 }) => {
@@ -19,7 +21,14 @@ const generateReadMe = async ({
     );
     const data = await response.json();
     console.log('AI Response: ', data);
-    return data?.choices[0]?.text;
+
+    if(!data?.error){
+      return data?.choices[0]?.text;
+    } else {
+      return data.error.message;
+    }
+   
+
   } catch (err) {
     console.error(err);
     return err.toString()
