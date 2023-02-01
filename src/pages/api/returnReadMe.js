@@ -18,7 +18,7 @@ const generateReadMe = async ({
       }
     );
     const data = await response.json();
-
+    console.log('AI Response: ', data);
     return data?.choices[0]?.text;
   } catch (err) {
     console.error(err);
