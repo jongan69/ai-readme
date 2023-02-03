@@ -4,7 +4,9 @@
 
 ### First, Create your .env
 `cp .env.example .env` 
-and then visit (here)[https://openai.com/api/] for an API Key
+and then 
+
+visit [here](https://openai.com/api/) for an API Key
 
 copy your `OPENAI_API_KEY=` to `.env`
 
