@@ -1,8 +1,11 @@
-# AI Debugger
+# AI Readme
 
 ## Getting Started
 
-First, run the development server:
+First, copy your `OPENAI_API_KEY=` to `.env`
+
+
+Second run the development server:
 
 ```bash
 npm run dev
