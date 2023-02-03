@@ -8,7 +8,7 @@ and then
 
 visit [here](https://openai.com/api/) for an API Key
 
-copy your `OPENAI_API_KEY=` to `.env`
+copy your key to `OPENAI_API_KEY=` in `.env`
 
 ### Second run the development server:
 
