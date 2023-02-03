@@ -1,5 +1,15 @@
 # AI Readme
 
+<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license">
+<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
+
+
+This repository contains a simple AI readme generator that uses OpenAI's GPT-3 API to generate a well-documented readme in markdown format.
+
+To use the AI readme generator, you need to have a OpenAI API Key. If you don't have one, you can sign up for the OpenAI API Beta program here.
+
+After you have an API Key, paste it in your .env, and you can use the AI readme generator by simply running the Nextjs Application in your browser.
+
 ## Getting Started
 
 ### First, Create your .env
